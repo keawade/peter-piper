@@ -19,6 +19,13 @@ peterpiper += "Where's the peck of pickled peppers Peter Piper picked?";
 
 var counter = 0;
 
-counter = peterpiper.length - peterpiper.replace(/p/gi, '').length
+const query = 'p';
+// const query = 'peck';
 
-console.log("There are " + counter + " P's in Peter Piper.");
+const countOccurences = (str, substr, caseSensitive) => {
+    return peterpiper.match(new RegExp(`${substr}`, caseSensitive ? 'g' : 'gi')).length;
+}
+
+counter = countOccurences(peterpiper, query, false);
+
+console.log(`There are ${counter} ${query}'s in Peter Piper.`);
